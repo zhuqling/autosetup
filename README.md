@@ -1,0 +1,2 @@
+# autosetup
+automation setup software
