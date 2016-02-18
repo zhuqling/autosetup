@@ -1,12 +1,12 @@
 #!/bin/bash
 
-VERSION=$1
+VERSION="$1"
 
 # install deps
 yum install -y wget gcc make tcl
 
 # install redis
-wget http://download.redis.io/releases/redis-$VERSION.tar.gz
+wget "http://download.redis.io/releases/redis-$VERSION.tar.gz"
 tar xzf redis-$VERSION.tar.gz
 cd redis-$VERSION
 make
@@ -18,7 +18,7 @@ sed -e "s/^daemonize no$/daemonize yes/" -e "s/^dir \.\//dir \/var\/lib\/redis\/
 
 # create init.d script
 cd /etc/init.d
-wget https://raw.githubusercontent.com/zhuqling/autosetup/master/scripts/centos-redis-init
+wget "https://raw.githubusercontent.com/zhuqling/autosetup/master/scripts/centos-redis-init"
 mv centos-redis-init redis
 chmod u+x redis
 
